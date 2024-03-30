@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BramhaDuttVishwakarma';
+  ngOnInit(): void {
+    var nav = Number($('app-header').innerHeight());
+    var totalHeight = window.innerHeight;
+    $('router-outlet').css('min-height',totalHeight-nav);
+  }
 }

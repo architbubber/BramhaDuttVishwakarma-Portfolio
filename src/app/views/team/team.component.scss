@@ -1,0 +1,12 @@
+.bg-navy-blue{
+  background-color:#101637;
+  color:white;
+}
+@media (min-width:1080px) {
+  img{
+    height: 190px;
+    aspect-ratio: 1;
+    object-fit:scale-down;
+  }
+
+}

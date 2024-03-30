@@ -1,0 +1,21 @@
+<div class="bg-navy-blue">
+  <h1 class="text-center py-2 font-poppins">About us</h1>
+  <h3 class="text-center font-noto-sans py-2">we are a team of curious individuals working together to better understand the changes in our hydrosphere</h3>
+  <div class="container my-5 justify-content-center">
+    <div class="row justify-content-start d-flex">
+    @for(item of data; track item.name){
+      <div class="col-lg-5 col-12 font-noto-sans text-white row card-body m-1">
+        <img src={{item.imageSrc}} alt=""  class="col">
+        <div class="col-lg-8 col-12 m-1" style="text-align: justify;">
+          <h2 class="font-poppins">{{item.name}} </h2>
+          <h6>{{item.designation}} </h6>
+          <p class="card-text">
+            {{item.bio}}
+          </p>
+        </div>
+      </div>
+  }
+</div>
+  </div>
+
+</div>
