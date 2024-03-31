@@ -8,7 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { PublicationsComponent } from './views/publications/publications.component';
-import { APP_BASE_HREF } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { APP_BASE_HREF } from '@angular/common';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: 'BramhaDuttVishwakarma-Portfolio'}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
