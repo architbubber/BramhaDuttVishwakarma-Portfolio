@@ -1,0 +1,16 @@
+.card-img-top{
+  object-fit:cover;  height: clamp(50vh,50vh,50vh);
+
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.card{
+  background-color: transparent;
+  border-radius: 0;
+}
+.col-special{
+  max-width: calc(33.333333% - .5rem);
+}

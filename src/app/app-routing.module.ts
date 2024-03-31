@@ -11,6 +11,7 @@ import { BlogsComponent } from './views/blogs/blogs.component';
 
 const routes: Routes = [
   {path:'',component: HomepageComponent},
+  {path:'BramhaDuttVishwakarma-Portfolio',component: HomepageComponent},
   {path:'projects',component:ProjectsComponent},
   {path:'career',component:CareerComponent},
   {path:'team',component:TeamComponent},
