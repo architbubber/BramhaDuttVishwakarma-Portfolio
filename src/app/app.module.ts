@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { PublicationsComponent } from './views/publications/publications.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -21,9 +22,10 @@ import { PublicationsComponent } from './views/publications/publications.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ModalModule
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

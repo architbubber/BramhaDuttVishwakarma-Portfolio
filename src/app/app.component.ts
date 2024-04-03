@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {Router} from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,9 +10,14 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title = 'BramhaDuttVishwakarma';
+
+  constructor(private route: ActivatedRoute,private router: Router){}
   ngOnInit(): void {
-    var nav = Number($('app-header').innerHeight());
-    var totalHeight = window.innerHeight;
-    $('router-outlet').css('min-height',totalHeight-nav);
+
+    let redirectTo = this.route.snapshot.queryParamMap.get('route');
+    if(redirectTo!=null){
+      this.router.navigate([redirectTo])
+    }
+
   }
 }

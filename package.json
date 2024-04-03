@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4200 --ssl true",
     "liveOnIntraNet": "ng serve --host 0.0.0.0",
-    "build": "ng build --base-href BramhaDuttVishwakarma-Portfolio",
+    "build": "ng build --base-href BramhaDuttVishwakarma-Portfolio && cp 404.html docs/.",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
