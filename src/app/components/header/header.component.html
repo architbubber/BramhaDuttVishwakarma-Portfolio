@@ -1,17 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 px-4 container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 px-lg-4 container-fluid">
 
-  <div class="container align-items-center align-content-center justify-content-lg-between">
+  <div class="container-lg align-items-center align-middle align-content-center justify-content-lg-between">
 
-    <a class="navbar-brand font-poppins align-items-center d-flex " routerLink="/" style="word-wrap: break-words;white-space:wrap;">
+    <a routerLink="/"  class="navbar-brand font-poppins" style="word-wrap: break-words;white-space:wrap;">
       <img src="https://ultra-pluto-7f6d1.stackbit.app/images/logoGESS.jpg" width="50.48px">
-      <span style="font-size: 24px;;">Geodesy for Earth system science</span>
+      <span style="font-size: 24px;">Geodesy for Earth system science</span>
     </a>
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="navbarId" data-bs-target="#navbarId"
-     aria-controls="navbarId" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div >
-      <div class="collapse navbar-collapse float-end" id="navbarID">
+    <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarId"
+    type="button" aria-expanded="false"
+      aria-controls="navbarId" aria-label="Toggle navigation" style="float: right !important;"
+      (click)="openNavForMobile()"
+      >
+       <span class="navbar-toggler-icon"></span>
+     </button>
+    </div>
+    <div>
+      <div id="navbarId" class="collapse navbar-collapse float-lg-end">
         <div class="navbar-nav font-noto-sans" style="font-size: 16px;gap:15px">
             <a class="nav-link underline-hover-effect active" aria-current="page" routerLink="/">HOME</a>
             <a class="nav-link underline-hover-effect " aria-current="page" routerLink="/projects">PROJECTS</a>
@@ -20,9 +24,8 @@
             <a class="nav-link underline-hover-effect " aria-current="page" routerLink = "/publications">PUBLICATIONS</a>
             <a class="nav-link underline-hover-effect " aria-current="page" routerLink="/blogs">BLOGS</a>
         </div>
-      </div>
     </div>
-
   </div>
+
 </nav>
 
