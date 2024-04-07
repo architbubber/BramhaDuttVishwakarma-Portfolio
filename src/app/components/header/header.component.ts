@@ -7,6 +7,7 @@ import * as $ from 'jquery';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  maxWidth:number = 0;
   constructor(private router: Router) {
     router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
@@ -16,6 +17,12 @@ export class HeaderComponent {
       }
 
     });
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.maxWidth = window.innerWidth;
   }
   openNavForMobile(){
     $('#navbarId').toggleClass('collapse');
