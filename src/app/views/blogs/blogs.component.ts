@@ -1,5 +1,7 @@
-import { Component, TemplateRef} from '@angular/core';
+import { Component, TemplateRef, ViewChild} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-blogs',
@@ -8,15 +10,24 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class BlogsComponent {
 
+  @ViewChild('#selectedBlogDisplay')
+  editModal!: TemplateRef<any>;
   showModalmodalRef!: BsModalRef;
   modalRef: any;
   selectedBlogId:number = 0;
 
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService,private route:ActivatedRoute) {}
+
+  ngAfterViewInit(): void {
+    if(this.route.snapshot.queryParamMap.keys.includes('viewBlogId')){
+      let blogId = this.route.snapshot.queryParamMap.get('viewBlogId');
+      $('#blog-'+blogId).trigger('click');
+    }
+  }
 
   openModal(template: TemplateRef<any>, blogId:number) {
-     this.modalRef = this.modalService.show(template, { class: 'modal-xl' });
+    this.modalRef = this.modalService.show(template, { class: 'modal-xl' });
     this.selectedBlogId = blogId;
   }
 
@@ -26,7 +37,7 @@ export class BlogsComponent {
       date:'August 27, 2022',
       title:'Data-driven signal separation helps in identifying GIA signal in Alaska',
       imgSrc:'./assets/images/blogs/Illustration_GIA_method.png',
-      description:"Our Earth is not rigid. In other words, it responds to surface mass load changes by deforming. During the last ice-age nearly 18000 yrs ago, most of the North America and Europe were under kilometers thick ice and this immense amount of load deformed the Earth. After the ice-age ended, these large ice-sheets melted and the load was lifted. The solid Earth surface is still responding to the change in load and this process is reffered to as the GIA or Glacial Isostatic Adjustment. Many regions in Canada and Europe are experiencing rapid uplift with respect to the Geocentre. This signal has a strong gravitational  component and is observed by GRACE. Hence to study hydrology this signal must be removed. The most common method to do that is to use GIA models that have huge uncertainties. Several researchers have thus tried to obtain data-driven estimates of GIA. Ina  recent work from th egroup, Bramha developed a data-driven method that uses data from GPS stations and GRACE in a novel mathematical framework that uses the geophysical relations to disentangle GIA and Surface mass change signal. The estimates from this work were significantly different from models over Alaska and Greenland. Many reesearchers have claimed that Alaska has a strong Visco-elastic signal that was missing from global GIA models. The results from this study have significant implications for studies focusing on sea level budget and Greenland ice-mass balance. You may read more about the work at: <https://academic.oup.com/gji/article/232/1/537/6674208>\n\n \n"
+      description:"Our Earth is not rigid. In other words, it responds to surface mass load changes by deforming. During the last ice-age nearly 18000 yrs ago, most of the North America and Europe were under kilometers thick ice and this immense amount of load deformed the Earth. After the ice-age ended, these large ice-sheets melted and the load was lifted. The solid Earth surface is still responding to the change in load and this process is reffered to as the GIA or Glacial Isostatic Adjustment. Many regions in Canada and Europe are experiencing rapid uplift with respect to the Geocentre. This signal has a strong gravitational  component and is observed by GRACE. Hence to study hydrology this signal must be removed. The most common method to do that is to use GIA models that have huge uncertainties. Several researchers have thus tried to obtain data-driven estimates of GIA. Ina  recent work from th egroup, Bramha developed a data-driven method that uses data from GPS stations and GRACE in a novel mathematical framework that uses the geophysical relations to disentangle GIA and Surface mass change signal. The estimates from this work were significantly different from models over Alaska and Greenland. Many reesearchers have claimed that Alaska has a strong Visco-elastic signal that was missing from global GIA models. The results from this study have significant implications for studies focusing on sea level budget and Greenland ice-mass balance. You may read more about the work at: <a target='_blank' href='https://academic.oup.com/gji/article/232/1/537/6674208'>link</a>\n\n \n"
     },
     {
       id:2,
@@ -41,7 +52,7 @@ export class BlogsComponent {
       date:'November 23, 2021',
       title:'Sea level rise is changing the sea floor',
       imgSrc:'./assets/images/blogs/Illust_Ocean_mass_OBD.png',
-      description:'Sea level rise is one of most dreadful consequences of the anthropogenic (caused by humans) global warming. It is estimated that the loss of coastal infrastructure alone would cost the world economy more than 1 trillion dollars per year by 2100. Researchers are closely monitoring changes in the sea level and trying to understand the physical processes driving these changes. Many studies have been able to explain the physical processes hat drive the global mean sea level change over the last few decades. The major takeaway from these studies was that in the second half of the 20th Century, steric sea level change (thermal expansion of oceans and salinity changes) was the dominant driver but in the last two decades mass change (due to addition of water from melting glaciers and ice-sheets on land) has significantly increased and is now the dominant component .\n\nBut additionally our solid Earth is not as rigid as it may seem. It is visco-elastic, which means when subjected to external force, it deforms, and when this external force is removed it resumes its shape, like a tennis ball. Since ice sheets (Greenland and Antarctica) are losing mass and oceans are gaining mass, Earth surface beneath the ice-sheets are slowly moving upward and the ocean bottom is going down due to changes in the surface mass (load). This change in the shape of the ocean floor is usually an order of magnitude smaller than the rate of change in ocean mass. Since the mass component of sea level rise was relatively small in the last half of the 20th century, OBD was negligible, but not anymore. The rate of sea level rise in the last two decades in approximately 3 mm/yr, out of which mass change constitutes 1.8 mm/yr, steric is 1.1 mm/yr and OBD is 0.1 mm/yr (see <https://doi.org/10.1029/2019GL086492> for more details).\n'
+      description:'Sea level rise is one of most dreadful consequences of the anthropogenic (caused by humans) global warming. It is estimated that the loss of coastal infrastructure alone would cost the world economy more than 1 trillion dollars per year by 2100. Researchers are closely monitoring changes in the sea level and trying to understand the physical processes driving these changes. Many studies have been able to explain the physical processes hat drive the global mean sea level change over the last few decades. The major takeaway from these studies was that in the second half of the 20th Century, steric sea level change (thermal expansion of oceans and salinity changes) was the dominant driver but in the last two decades mass change (due to addition of water from melting glaciers and ice-sheets on land) has significantly increased and is now the dominant component .\n\nBut additionally our solid Earth is not as rigid as it may seem. It is visco-elastic, which means when subjected to external force, it deforms, and when this external force is removed it resumes its shape, like a tennis ball. Since ice sheets (Greenland and Antarctica) are losing mass and oceans are gaining mass, Earth surface beneath the ice-sheets are slowly moving upward and the ocean bottom is going down due to changes in the surface mass (load). This change in the shape of the ocean floor is usually an order of magnitude smaller than the rate of change in ocean mass. Since the mass component of sea level rise was relatively small in the last half of the 20th century, OBD was negligible, but not anymore. The rate of sea level rise in the last two decades in approximately 3 mm/yr, out of which mass change constitutes 1.8 mm/yr, steric is 1.1 mm/yr and OBD is 0.1 mm/yr (see <a target="_blank" href="https://doi.org/10.1029/2019GL086492">link</a> for more details).\n'
 
     },
     {
@@ -49,7 +60,7 @@ export class BlogsComponent {
       date:'October 17, 2021',
       title:'The spatial resolution of GRACE products',
       imgSrc:'./assets/images/blogs/GRACE_fil_fld.png',
-      description:'GRACE is a unique mission with unique design. It is not similar to optical remote sensing mission where we know the resolution of onboard sensor (or camera), rather it relies on geophysical inversion of the geopotential from the satellite range rate data (rate of change in the along-track distance between the two satellites in the same orbit).  Its spatial resolution cannot be expressed in terms of pixel size, or bands. In an article, the concept of the spatial resolution for a GRACE like mission was explained in detail (follow <https://www.mdpi.com/2072-4292/10/6/852>). In short, GRACE resolution and accuracy have a tradeoff and we can  expect GRACE to capture mass changes in catchments larger than 63000 sq. km with an RMSE (Root mean square error) of 2 cm EWH (equivalent water height).\n'
+      description:'GRACE is a unique mission with unique design. It is not similar to optical remote sensing mission where we know the resolution of onboard sensor (or camera), rather it relies on geophysical inversion of the geopotential from the satellite range rate data (rate of change in the along-track distance between the two satellites in the same orbit).  Its spatial resolution cannot be expressed in terms of pixel size, or bands. In an article, the concept of the spatial resolution for a GRACE like mission was explained in detail (follow <a target="_blank" href="https://www.mdpi.com/2072-4292/10/6/852">link</a>). In short, GRACE resolution and accuracy have a tradeoff and we can  expect GRACE to capture mass changes in catchments larger than 63000 sq. km with an RMSE (Root mean square error) of 2 cm EWH (equivalent water height).\n'
 
 
     },

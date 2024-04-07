@@ -80,10 +80,10 @@
       <div class="col-lg-4 col-12 text-white ">
         <h1>Latest publication</h1>
         We have recently developed a data-driven geophysical framework that employs GRACE satellite gravimetry and GPS vertical land motion data to separate present day mass changes from slow solid Earth mass changes due to visco-elastic response of the Earth to glacial cycles. This provides us with data-driven estimate of GIA that is significantly different over Alaska and Greenland. We hope that the new GIA field will advance our understanding of the sea level budget and Greenland mass changes.
-        <br><button class="btn mt-5 btn-purple">To the blog</button>
-        <button routerLink="/publications" class="btn mt-5 offset-1 bg-transparent border-black-0 text-white underline-hover-effect before-white">
+        <br><button class="btn mt-5 btn-purple" routerLink="/blogs" [queryParams]="{viewBlogId: '1'}">To the blog</button>
+        <a class="btn mt-5 offset-1 bg-transparent border-black-0 text-white underline-hover-effect before-white" href="https://academic.oup.com/gji/article/232/1/537/6674208?login=false" target="_blank">
           To the Article <i class="fa-solid fa fa-3 fa-arrow-right" style="color: white ;"></i>
-        </button>
+        </a>
       </div>
       <div class="col-lg-6 col-12 offset-lg-2 mt-2 mt-lg-0">
         <img src="./assets/images/logoAndBanner/ggac336fig7.jpeg" width="100%">
@@ -92,13 +92,13 @@
   </div>
 </div>
 
-<div class="d-lg-flex justify-content-lg-center bg-white p-lg-5 p-2">
+<div class="d-lg-flex justify-content-lg-center bg-white p-lg-5 p-2" routerLink="/blogs" [queryParams]="{viewBlogId: '4'}">
   <div class="card border-0 align-items-center col-lg-6 col-12">
     <span class="overflow-hidden"><img class="card-img-top" src="./assets/images/blogs/GRACE_fil_fld.png" alt="" ></span>
     <h4 class="col-12 title font-noto-sans">The spatial resolution of GRACE products</h4>
     <h6 class="col-12 font-poppins">October 17, 2021</h6><br>
   </div>
-  <div class="card border-0 align-items-center col-lg-6 col-12" routerLink="/projects">
+  <div class="card border-0 align-items-center col-lg-6 col-12" routerLink="/blogs" [queryParams]="{viewBlogId: '1'}">
     <span class="overflow-hidden"><img class="card-img-top" src="./assets/images/blogs/Illustration_GIA_method.png" width="100%"></span>
     <h4 class="col-12 title font-noto-sans">Data-driven signal separation helps in identifying GIA signal in Alaska</h4>
     <h6 class="col-12 font-poppins">August 27, 2022</h6><br>
