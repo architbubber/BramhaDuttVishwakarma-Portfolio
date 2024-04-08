@@ -23,14 +23,16 @@ body{
 .font-noto-sans{
   font-family: Noto Sans Display,sans-serif !important;
 }
-.text-stage-1{
+.font-h1{
   font-size: 36px;
 }
-.text-stage-2{
-  font-size: 24px;
+.font-h2{
+  font-size: 1.86vmax !important;
+  // word-wrap: break-word;
+  // text-wrap: wrap;
 }
-.text-stage-3{
-  font-size: 16px;
+.font-h3{
+  font-size: 1.33vmax !important;
 }
 .bg-dark{
   background-color: #282828 !important;
@@ -87,3 +89,8 @@ a.underline-hover-effect {
   color: white !important;
 }
 
+@media(max-width:986px){
+  div p, [class*="h-"] {
+    text-align: justify;
+  }
+}
