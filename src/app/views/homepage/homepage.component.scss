@@ -22,3 +22,13 @@
 .homepage-image{
   width:calc(100%)
 }
+
+@media (min-width:986px) {
+  .btn-w-30-desktop{
+    max-width: 30% !important;
+    max-height: 10%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}

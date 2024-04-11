@@ -1,24 +1,24 @@
-<div class="justify-content-center">
-<div class="container-flex justify-content-start d-flex p-lg-4 px-lg-5 bg-dark font-poppins mb-4">
-  <h1 style="font-size: 3rem !important;">Ongoing research activities</h1>
-</div>
+<div class="d-flex row justify-content-center">
+  <div class="container-flex justify-content-start d-flex p-lg-4 px-lg-5 bg-dark font-poppins mb-4 ">
+    <h1 class="font-heading">Ongoing research activities</h1>
+  </div>
 
-<div class="container " style="background-color: rgba(246,241,237,var(--tw-bg-opacity)) !important;">
-@for (user of data;track user.heading) {
-  <div class="container row bg-white text-black my-4 p-3 align-items-center">
+  <div class="container p-lg-5 justify-content-center d-flex row" style="background-color: rgba(246,241,237,var(--tw-bg-opacity)) !important;">
+    @for (user of data;track user.heading) {
+      <div class="container row bg-white text-black my-4 p-3 align-items-center col-12">
 
-    <div class="col-12 col-lg-6 row">
-      <h4 class="col-12 title font-noto-sans">{{user.title}}</h4>
-      <h1 class="col-12 font-poppins">{{user.heading}}</h1><br>
-      <p class="col-12 font-noto-sans">{{user.text}}</p>
-    </div>
+        <div class="col-12 col-lg-6 row">
+          <h4 class="col-12 title font-noto-sans">{{user.title}}</h4>
+          <h1 class="col-12 font-poppins">{{user.heading}}</h1><br>
+          <p class="col-12 font-noto-sans">{{user.text}}</p>
+        </div>
 
-    <div class="col-12 col-lg-6 p-1">
-      <img src={{user.imgSrc}}>
-    </div>
+        <div class="col-12 col-lg-6 p-1">
+          <img src={{user.imgSrc}}>
+        </div>
+
+      </div>
+    }
 
   </div>
-}
-
-</div>
 </div>

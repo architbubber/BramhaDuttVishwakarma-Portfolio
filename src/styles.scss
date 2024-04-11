@@ -14,6 +14,10 @@ html{
 }
 
 body{
+
+  --bs-body-font-size:  1.11vmax !important;
+  --bs-btn-font-size:1.11vmax !important;
+
   background-color: rgba(246,241,237,var(--tw-bg-opacity)) !important;
 }
 
@@ -23,16 +27,22 @@ body{
 .font-noto-sans{
   font-family: Noto Sans Display,sans-serif !important;
 }
+.font-heading{
+  font-size: 3.33vmax !important;
+}
 .font-h1{
-  font-size: 36px;
+  font-size: 2.5vmax !important;//36px
 }
 .font-h2{
-  font-size: 1.86vmax !important;
+  font-size: 1.86vmax !important;//26px
   // word-wrap: break-word;
   // text-wrap: wrap;
 }
 .font-h3{
-  font-size: 1.33vmax !important;
+  font-size: 1.33vmax !important;//18px
+}
+.font-h4{
+  font-size: 1.11vmax !important;//16px == 1rem
 }
 .bg-dark{
   background-color: #282828 !important;
