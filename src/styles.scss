@@ -59,6 +59,13 @@ body{
   color: #344ff1;
 }
 
+@media (min-width:986px) {
+  .w-lg-75{
+    width: 75% !important;
+  }
+}
+
+
 
 a.underline-hover-effect {
   text-decoration: none;
