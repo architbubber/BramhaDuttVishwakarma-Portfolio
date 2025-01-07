@@ -77,6 +77,9 @@
       <div class="alert alert-success mt-4" *ngIf="isSaveSuccessful && nextStepIndex == 2">
         <strong>Success!</strong> Your build and save were completed. You can now commit and deploy.
       </div>
+      <div class="alert alert-success mt-4" *ngIf="nextStepIndex == 4">
+        <strong>Congratulations!</strong> Your site has been deployed. You can now close the servers.
+      </div>
     </div>
   </div>
 </div>

@@ -10,10 +10,6 @@ import { BlogsComponent } from './views/blogs/blogs.component';
 import { SiteEditorComponent } from './views/devModeOnly/site-editor/site-editor.component';
 import { environment } from 'src/environments/environment';
 
-
-
-const isDevMode = !environment.production;
-
 const routes: Routes = [
   {path:'',component: HomepageComponent},
   {path:'BramhaDuttVishwakarma-Portfolio',component: HomepageComponent},
@@ -22,16 +18,8 @@ const routes: Routes = [
   {path:'team',component:TeamComponent},
   {path:'publications',component:PublicationsComponent},
   {path:'blogs',component:BlogsComponent},
-  {
-    path: 'edit-site',
-    component: SiteEditorComponent
-    // loadChildren: () =>
-    //   isDevMode
-    //     ? import('./views/devModeOnly/site-editor/site-editor.module').then(m => m.SiteEditorModule)
-    //     : import('./views/not-found/not-found.component').then(m => m.NotFoundComponent)
-  },
+  {path: 'edit-site',component: (!environment.production? SiteEditorComponent:NotFoundComponent)},
   {path:'**', component: NotFoundComponent}
-
 ];
 
 @NgModule({

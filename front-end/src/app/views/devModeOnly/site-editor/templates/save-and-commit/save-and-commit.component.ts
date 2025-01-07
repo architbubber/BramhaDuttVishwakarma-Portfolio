@@ -21,8 +21,8 @@ export class SaveAndCommitComponent implements OnInit {
   ];
   commands:string[] = [
     'git diff --name-only',
-    'cd front-end && npm run build',
-    'git add docs/ && git add . && git commit -m',
+    'npm run build',
+    'git add docs/ && git add front-end/src/* && git commit -m ',
     'git push'
   ]
 
@@ -48,7 +48,7 @@ export class SaveAndCommitComponent implements OnInit {
       this.nextStepIndex++
       this.nextStepToRun = this.commands[this.nextStepIndex];
     }
-    else{
+    if(this.nextStepIndex==3){
       this.isCommitEnabled = true;
     }
   }
@@ -64,7 +64,7 @@ export class SaveAndCommitComponent implements OnInit {
         alert("Empty commit message is not allowed")
         return
       }
-      this.nextStepToRun += this.commitMessage;
+      this.nextStepToRun += '"'+this.commitMessage+'"';
     }
     this.httpService
       .post('/run-git-command', {
