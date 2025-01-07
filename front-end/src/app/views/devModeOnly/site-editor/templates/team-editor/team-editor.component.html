@@ -1,0 +1,54 @@
+<div class="container my-5">
+  <!-- Page Title -->
+  <h2 class="text-center mb-4">Team Members Editor</h2>
+
+  <!-- Form for Adding/Editing Team Members -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h5>{{ editIndex !== null ? 'Edit' : 'Add' }} Team Member</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="saveMember()">
+            <div class="mb-3">
+              <label for="designation" class="form-label">Designation</label>
+              <input type="text" id="designation" [(ngModel)]="currentMember.designation" name="designation" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" [(ngModel)]="currentMember.name" name="name" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="bio" class="form-label">Bio</label>
+              <textarea id="bio" [(ngModel)]="currentMember.bio" name="bio" class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="imageSrc" class="form-label">Image URL</label>
+              <input type="text" id="imageSrc" [(ngModel)]="currentMember.imageSrc" name="imageSrc" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">{{ editIndex !== null ? 'Update' : 'Save' }} Member</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Displaying Team Members -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let member of teamMembers; let i = index">
+      <div class="team-member-box">
+        <img [src]="member.imageSrc" alt="{{ member.name }}" class="img-fluid rounded-circle mb-3" />
+        <h5>{{ member.name }}</h5>
+        <p><strong>Designation:</strong> {{ member.designation }}</p>
+        <p><strong>Bio:</strong> {{ member.bio }}</p>
+
+        <!-- Edit/Delete Buttons -->
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-warning" (click)="editMember(i)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteMember(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

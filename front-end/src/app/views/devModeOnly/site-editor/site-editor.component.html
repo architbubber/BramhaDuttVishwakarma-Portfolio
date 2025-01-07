@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 bg-light" id="sidebar">
+      <div class="list-group">
+        <!-- Sidebar buttons to switch content -->
+        <button class="list-group-item list-group-item-action" (click)="setActiveContent('home')">HOME</button>
+        <button class="list-group-item list-group-item-action" (click)="setActiveContent('projects')">PROJECTS</button>
+        <!-- <button class="list-group-item list-group-item-action" (click)="setActiveContent('career')">CAREER</button> -->
+        <button class="list-group-item list-group-item-action" (click)="setActiveContent('team')">TEAM</button>
+        <button class="list-group-item list-group-item-action"
+          (click)="setActiveContent('publications')">PUBLICATIONS</button>
+        <button class="list-group-item list-group-item-action" (click)="setActiveContent('blogs')">BLOGS</button>
+        <button class="list-group-item list-group-item-action" (click)="setActiveContent('save-and-commit')">Save</button>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="col-md-9">
+      <!-- Dynamic Content: use ng-template to conditionally render content -->
+
+      <ng-container *ngIf="activeContent==='home'">
+        <h1>Home</h1>
+        <p>Please use this module very carefully. Any modifications done here will directly reflect and affect the working of your website</p>
+        <home-editor></home-editor>
+      </ng-container>
+
+
+      <projects-editor *ngIf="activeContent === 'projects'"></projects-editor>
+
+      <team-editor *ngIf="activeContent === 'team'"></team-editor>
+
+      <publications-editor *ngIf="activeContent === 'publications'"></publications-editor>
+
+      <blogs-editor *ngIf="activeContent === 'blogs'"></blogs-editor>
+
+      <save-and-commit *ngIf="activeContent === 'save-and-commit'"></save-and-commit>
+    </div>
+  </div>
+</div>

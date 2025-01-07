@@ -1,0 +1,54 @@
+<div class="container my-5">
+  <!-- Page Title -->
+  <h2 class="text-center mb-4">Blog Editor</h2>
+
+  <!-- Form for Adding/Editing Blog Posts -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h5>{{ editIndex !== null ? 'Edit' : 'Add' }} Blog Post</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="saveBlog()">
+            <div class="mb-3">
+              <label for="date" class="form-label">Date</label>
+              <input type="text" id="date" [(ngModel)]="currentBlog.date" name="date" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" id="title" [(ngModel)]="currentBlog.title" name="title" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" [(ngModel)]="currentBlog.description" name="description" class="form-control" rows="6" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="imgSrc" class="form-label">Image URL</label>
+              <input type="text" id="imgSrc" [(ngModel)]="currentBlog.imgSrc" name="imgSrc" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">{{ editIndex !== null ? 'Update' : 'Save' }} Blog</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Displaying Blog Posts -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let blog of blogs; let i = index">
+      <div class="blog-box">
+        <img [src]="blog.imgSrc" alt="{{ blog.title }}" class="img-fluid mb-3" />
+        <h5>{{ blog.title }}</h5>
+        <p><strong>Date:</strong> {{ blog.date }}</p>
+        <p><strong>Description:</strong> {{ blog.description | slice:0:150 }}...</p>
+
+        <!-- Edit/Delete Buttons -->
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-warning" (click)="editBlog(i)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteBlog(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

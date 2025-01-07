@@ -1,0 +1,80 @@
+<div class="container mt-5 overflow-scroll">
+  <h1 class="text-center mb-5">Edit GESS Research Group Information</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <!-- Top Banner Section -->
+    <div class="mb-4">
+      <h2 class="h4 text-white mb-3">Top Banner</h2>
+      <div class="form-group">
+        <label for="topBannerImgSrc" class="form-label">Top Banner Image URL</label>
+        <input type="text" id="topBannerImgSrc" class="form-control" formControlName="topBannerImgSrc" placeholder="Enter banner image URL">
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="mb-4">
+      <h2 class="h4 text-white mb-3">About Us</h2>
+      <div class="form-group">
+        <label for="aboutInfo" class="form-label">About Information</label>
+        <textarea id="aboutInfo" class="form-control" formControlName="aboutInfo" rows="4" placeholder="Enter the About Us text"></textarea>
+      </div>
+      <div class="form-group mt-3">
+        <label for="aboutImgSrc" class="form-label">About Image URL</label>
+        <input type="text" id="aboutImgSrc" class="form-control" formControlName="aboutImgSrc" placeholder="Enter about image URL">
+      </div>
+    </div>
+
+    <!-- Latest Publication Section -->
+    <div class="mb-4">
+      <h2 class="h4 text-white mb-3">Latest Publication</h2>
+      <div class="form-group">
+        <label for="latestPublicationTitle" class="form-label">Title</label>
+        <input type="text" id="latestPublicationTitle" class="form-control" formControlName="latestPublicationTitle" placeholder="Enter publication title">
+      </div>
+      <div class="form-group mt-3">
+        <label for="latestPublicationDescription" class="form-label">Description</label>
+        <textarea id="latestPublicationDescription" class="form-control" formControlName="latestPublicationDescription" rows="4" placeholder="Enter publication description"></textarea>
+      </div>
+      <div class="form-group mt-3">
+        <label for="latestPublicationBlogLink" class="form-label">Blog Link</label>
+        <input type="text" id="latestPublicationBlogLink" class="form-control" formControlName="latestPublicationBlogLink" placeholder="Enter blog URL">
+      </div>
+      <div class="form-group mt-3">
+        <label for="latestPublicationArticleLink" class="form-label">Article Link</label>
+        <input type="text" id="latestPublicationArticleLink" class="form-control" formControlName="latestPublicationArticleLink" placeholder="Enter article URL">
+      </div>
+      <div class="form-group mt-3">
+        <label for="latestPublicationImgSrc" class="form-label">Publication Image URL</label>
+        <input type="text" id="latestPublicationImgSrc" class="form-control" formControlName="latestPublicationImgSrc" placeholder="Enter image URL for publication">
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="mb-4">
+      <h2 class="h4 text-white mb-3">Team Members</h2>
+      <div *ngFor="let teamMember of data.team; let i = index" class="mb-4">
+        <h5 class="text-white">Member {{i + 1}}</h5>
+        <div class="form-group">
+          <label for="teamMember{{i}}Name" class="form-label">Name</label>
+          <input type="text" id="teamMember{{i}}Name" class="form-control" [formControlName]="'teamMember' + i + '.name'" placeholder="Enter team member name">
+        </div>
+        <div class="form-group mt-3">
+          <label for="teamMember{{i}}Role" class="form-label">Role</label>
+          <input type="text" id="teamMember{{i}}Role" class="form-control" [formControlName]="'teamMember' + i + '.role'" placeholder="Enter team member role">
+        </div>
+        <div class="form-group mt-3">
+          <label for="teamMember{{i}}ImageSrc" class="form-label">Image URL</label>
+          <input type="text" id="teamMember{{i}}ImageSrc" class="form-control" [formControlName]="'teamMember' + i + '.imageSrc'" placeholder="Enter image URL">
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="form.invalid">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>

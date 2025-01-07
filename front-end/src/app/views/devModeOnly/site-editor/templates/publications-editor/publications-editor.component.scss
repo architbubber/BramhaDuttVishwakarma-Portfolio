@@ -1,0 +1,81 @@
+/* Paper Box Styling */
+.paper-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.paper-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Custom Styles */
+.edit-btn {
+  background-color: #ffc107;
+  color: #fff;
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Card Header and Body Customization */
+.card-header {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.card-body {
+  background-color: #f1f1f1;
+}
+
+h2 {
+  font-size: 32px;
+  color: #333;
+}
+
+/* Form Customization */
+.form-label {
+  font-weight: bold;
+}
+
+/* Button Customization for Form */
+button[type="submit"] {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.fixed-steps {
+  position: fixed;
+  top: 100px; /* Adjust as needed based on the header height */
+  left: 0;
+  width: 25%; /* You can adjust this width to fit your design */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 100px); /* Keep it from scrolling with the page */
+  overflow-y: auto;
+}
+
+.container {
+  padding-left: 25%; /* This is to offset the content area for the fixed steps */
+}
+
+.list-group-item {
+  word-wrap: break-word;
+}

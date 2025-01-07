@@ -1,0 +1,88 @@
+<div class="row container-fluid d-flex justify-content-center pb-5 align-middle align-content-center align-items-center" style="max-width: 100vw ;background-color: #282828;">
+  <div class="col-12 col-lg-6 row p-lg-5 p-2 py-4 text-white d-flex justify-content-start align-items-center">
+    <h1 class="col-12 mb-3 font-poppins banner-font-size" style="font-weight: 400;">Welcome to the webpage of GESS research group</h1>
+    <a routerLink = "/team" class="font-noto-sans btn p-3 text-white col-lg-3 col-6 btn-purple">Our Team</a>
+    <a routerLink="/publications" class="btn col-lg-3 col-6 offset-lg-1 bg-transparent border-0 text-white underline-hover-effect font-noto-sans before-white">PUBLICATIONS
+      <i class="fa-solid fa fa-3 fa-arrow-right" style="color: white ;"></i>
+    </a>
+  </div>
+  <div class="col-12 col-lg-6 d-flex justify-content-center ">
+    <img [src]="data.topBanner.imgSrc" class="homepage-image">
+  </div>
+</div>
+
+<div class="w-100 d-flex justify-content-center">
+  <div class="container-flex m-lg-5 m-2 p-4" style="background-color: rgba(16,22,55);border-radius: 20px;">
+    <div class="row ">
+      <div class="col-lg-5 col-12 text-white d-flex row">
+        <h6 class="text-purple col-12 font-h4">ABOUT</h6>
+        <p class="font-noto-sans align-self-center col-12">
+          {{data.about.info}}
+        </p>
+        <br><button class="btn mt-2 p-sm-2 btn-purple btn-w-30-desktop" routerLink="/projects">Ongoing Projects</button>
+      </div>
+      <div class="col-lg-6 col-12 offset-lg-1 mt-2 mt-lg-0">
+        <img [src]="data.about.imageSrc" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center container-flex">
+  <h1 class="text-center font-poppins" style="overflow-wrap: break-word;line-height: 1.15;font-size: 3.33vmax;">Curious individuals working together!</h1>
+  <p>We are a group of researchers with education and training in diverse fields, working together on complex interdisciplinary problems in the field of Geodesy, water and climate.</p>
+</div>
+
+<!-- Team members -->
+<div class="row justify-content-between p-5 d-flex align-items-stretch">
+  <div *ngFor="let member of data.team; index as index" class="col-4 card p-2" [ngClass]="index < 3?'border-1 border-black':'border-0'">
+    <img [src]="member.imageSrc" alt="" class="img-fluid m-1">
+    <h3 class="card-title font-poppins font-h2">{{member.name}}</h3>
+    <h5 class="card-title font-noto-sans font-h3">{{member.role}}</h5>
+  </div>
+</div>
+
+<div class="container-fluid bg-transparent p-lg-5">
+  <a routerLink="/team" class="btn font-poppins font-h3 text-dark bg-transparent border border-3 border-black">More about the team
+    <i class="fa-solid fa fa-3 fa-arrow-right" style="color: rgb(1, 1, 1) ;"></i>
+  </a>
+</div>
+
+<div class="w-100 d-flex justify-content-center">
+  <div class="card m-lg-5 mt-2 p-lg-4 p-2" style="background-color: rgba(40,40,40);">
+    <div class="card-body row align-items-center">
+      <div class="col-lg-4 col-12 text-white ">
+        <h1>{{data.latestPublication.title}}</h1>
+        <p>{{data.latestPublication.description}}</p>
+        <br><button class="btn mt-5 btn-purple" [routerLink]="data.latestPublication.blogLink" [queryParams]="{viewBlogId: '1'}">To the blog</button>
+        <a class="btn mt-5 offset-1 bg-transparent border-black-0 text-white underline-hover-effect before-white" [href]="data.latestPublication.articleLink" target="_blank">
+          To the Article <i class="fa-solid fa fa-3 fa-arrow-right" style="color: white ;"></i>
+        </a>
+      </div>
+      <div class="col-lg-6 col-12 offset-lg-2 mt-2 mt-lg-0">
+        <img [src]="data.latestPublication.imageSrc" width="100%">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-lg-flex justify-content-lg-center bg-white p-lg-5 p-2" routerLink="/blogs" [queryParams]="{viewBlogId: '4'}">
+  <div *ngFor="let post of data.blogPosts" class="card border-0 align-items-center col-lg-6 col-12">
+    <span class="overflow-hidden"><img class="card-img-top" [src]="post.imageSrc" alt="" ></span>
+    <h4 class="col-12 title font-noto-sans">{{post.title}}</h4>
+    <h6 class="col-12 font-poppins">{{post.date}}</h6><br>
+  </div>
+</div>
+
+<div class="container-fluid bg-transparent p-lg-5">
+  <a routerLink="/blogs" class="btn font-poppins font-h3 text-dark bg-transparent border-black-0 underline-hover-effect">See all posts
+    <i class="fa-solid fa fa-3 fa-arrow-right" style="color: rgb(1, 1, 1) ;"></i>
+  </a>
+</div>
+
+<div class="container-fluid py-5 p-lg-5 p-1 text-center text-white " style="background-color: rgba(40,40,40);">
+  <h1 class="font-poppins" style="font-size: 3.33vmax;">Group News</h1>
+  <ul class="m-lg-5 m-3 font-noto-sans font-h3" style="text-align: justify;line-height: 1.94vmax;">
+    <li *ngFor="let news of data.groupNews">{{news}}</li>
+  </ul>
+</div>

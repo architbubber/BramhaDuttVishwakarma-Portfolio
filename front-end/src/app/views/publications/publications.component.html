@@ -1,0 +1,10 @@
+<div class="py-4 bg-white">
+  <div class="p-lg-5">
+    <h2 class="text-left font-poppins font-heading" data-sb-field-path=".title">Peer-reviewed journal articles</h2>
+    <ul class="text-left mt-5">
+      <ng-container *ngFor="let row of data">
+        <li class="my-4"><a class="link-dark" href={{row.link}} target="_blank">{{row.title}}</a></li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

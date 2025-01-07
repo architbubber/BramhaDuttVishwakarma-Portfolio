@@ -1,0 +1,47 @@
+<div class="my-5">
+
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h5>Manage Research Paper</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="savePaper()" #paperForm="ngForm">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" id="title" name="title" [(ngModel)]="currentPaper.title" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="link" class="form-label">Link</label>
+              <input type="url" id="link" name="link" [(ngModel)]="currentPaper.link" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-save"></i> Save Paper
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Displaying Research Papers -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let paper of papers; let i = index">
+      <div class="paper-box">
+        <h5>{{ paper.title }}</h5>
+        <p><strong>Link:</strong> <a href="{{ paper.link }}" target="_blank">{{ paper.link }}</a></p>
+
+        <!-- Edit/Delete Buttons -->
+        <div class="d-flex justify-content-between">
+          <button class="btn edit-btn" (click)="editPaper(i)">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button class="btn delete-btn" (click)="deletePaper(i)">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

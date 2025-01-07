@@ -1,0 +1,87 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4">Projects CRUD</h2>
+
+  <!-- Form for Adding/Editing Projects -->
+  <div class="row mb-4">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h5>{{ editIndex !== null ? 'Edit' : 'Add' }} Project</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="saveProject()">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                id="title"
+                [(ngModel)]="currentProject.title"
+                name="title"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="heading" class="form-label">Heading</label>
+              <input
+                type="text"
+                id="heading"
+                [(ngModel)]="currentProject.heading"
+                name="heading"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="imgSrc" class="form-label">Image Source</label>
+              <input
+                type="text"
+                id="imgSrc"
+                [(ngModel)]="currentProject.imgSrc"
+                name="imgSrc"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="text" class="form-label">Description</label>
+              <textarea
+                id="text"
+                [(ngModel)]="currentProject.text"
+                name="text"
+                class="form-control"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              {{ editIndex !== null ? 'Update' : 'Save' }} Project
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Displaying Projects -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let project of projects; let i = index">
+      <div class="paper-box">
+        <h5>{{ project.title }}</h5>
+        <h6>{{ project.heading }}</h6>
+        <img [src]="project.imgSrc" alt="Project Image" class="img-fluid mb-3" />
+        <p>{{ project.text }}</p>
+
+        <!-- Edit/Delete Buttons -->
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-warning" (click)="editProject(i)">
+            <i class="fa fa-pencil"></i> Edit
+          </button>
+          <button class="btn btn-danger" (click)="deleteProject(i)">
+            <i class="fa fa-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
