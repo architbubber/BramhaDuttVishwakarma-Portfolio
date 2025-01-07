@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "(cd front-end && npm start) & (cd server && npm start)",
+    "start":"git pull origin development && npm run start-servers",
+    "start-servers" : "(cd front-end && npm start) & (cd server && npm start)",
     "build" : "(cd front-end && npm run build)",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
