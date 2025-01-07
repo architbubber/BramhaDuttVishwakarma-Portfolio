@@ -7,8 +7,8 @@
       <div class="fixed-steps">
         <h4>Process Steps:</h4>
         <ul class="list-group mb-4">
-          <li *ngFor="let step of steps" class="list-group-item">
-            <span *ngIf="isBuildAndSaveInProgress && step.includes(toString(nextStepIndex+1))"
+          <li *ngFor="let step of steps;index as index" class="list-group-item" [ngClass]="nextStepIndex>index?'bg-info':null" >
+            <span *ngIf="isBuildAndSaveInProgress && index == nextStepIndex"
               class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
             {{ step }}
           </li>
@@ -60,14 +60,14 @@
 
       <!-- Action Buttons -->
       <div class="text-center">
-        <button class="btn btn-primary" (click)="runCMDCommand()" [disabled]="isBuildAndSaveInProgress"
+        <button *ngIf="nextStepIndex<3" class="btn btn-primary" (click)="runCMDCommand()" [disabled]="isBuildAndSaveInProgress"
           [class.disabled]="isBuildAndSaveInProgress">
           <span *ngIf="isBuildAndSaveInProgress" class="spinner-border spinner-border-sm me-2" role="status"
             aria-hidden="true"></span>
           Run Step {{ nextStepIndex +1 }}
         </button>
 
-        <button class="btn btn-success ms-3" (click)="commitAndDeploy()" [disabled]="!isCommitEnabled"
+        <button *ngIf="nextStepIndex<4" class="btn btn-success ms-3" (click)="runCMDCommand()" [disabled]="!isCommitEnabled"
           [class.disabled]="!isCommitEnabled">
           Commit and Deploy
         </button>

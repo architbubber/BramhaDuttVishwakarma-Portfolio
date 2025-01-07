@@ -41,7 +41,18 @@ export class SaveAndCommitComponent implements OnInit {
     this.modalService.open(content,{size:"xl"});
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {this.reset()}
+
+  reset(){
+    this.stepsSuccess = [false,false,false,false]
+    this.nextStepIndex = 0;
+    this.isBuildAndSaveInProgress = false;
+    this.isSaveSuccessful = false;
+    this.isCommitEnabled = false;
+    this.filesChanged = null;
+    this.nextStepToRun = 'git diff --name-only';
+    this.commitMessage = null;
+  }
 
    updateNextStepIndex():void {
     if(this.stepsSuccess.findIndex(f => f === false)){
